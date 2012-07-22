@@ -228,7 +228,7 @@ def compare_with_alignment(ref_file, hyp_file):
             hyp_words.append("%s %d %d" % (word.text, num, word.id))
             word.aligned_to = None
         num += 1
-    for item in alignment.align(ref_words, hyp_words):
+    for item in alignment.align(ref_words, hyp_words, command=os.path.dirname(__file__) + "/align/align"):
         if item[0] == None or item[1] == None:
             stats.word_errors += 1
             continue

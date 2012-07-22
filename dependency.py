@@ -8,7 +8,10 @@ class DependencyNode:
             root = None
             for line in lines:
                 tokens = line.strip().split("\t")
-                parent = int(tokens[8]) - 1
+                if tokens[8] == "-1":
+                    parent = int(tokens[9]) - 1
+                else:
+                    parent = int(tokens[8]) - 1
                 if parent == -1 and root == None:
                     root = self
                     self.parent = parent
